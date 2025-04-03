@@ -1,27 +1,31 @@
-const readLine = require("readline-sync");
-const height = readLine.questionFloat("Your Height: ");
-const weight = readLine.questionFloat("Your weight: ");
-if (isNaN(height) || height <= 0 || isNaN(weight) || weight <= 0) {
-    console.log('Please enter valid positive numbers');
+const readLine = require('readline-sync');
+let height = readLine.questionFloat("Height: ");
+let weight = readLine.questionFloat("Weight: ");
+if (height <= 0 || weight <= 0) {
+    console.log("Sai roi nhap lai di");
 } else {
-    const bmi = weight / (height ** 2);
-    console.log(`Your BMI: ${bmi.toFixed(3)}`);
-    let category = "";
-    let suggestion = "";
+    var bmi = weight / (height ** 2);
+    var isUnderw = false;
+    var isOverw = false;
+    console.log(`BMI: ${bmi.toFixed(2)}`);
     if (bmi < 18.5) {
-        category = "Underweight";
-        suggestion = "You should consider increasing your weight to reach a healthy range.";
+        console.log("Underweight");
+        isUnderw = true;
     } else if (bmi <= 24.9) {
-        category = "Normal weight";
-        suggestion = "Your weight is in the healthy range. Keep up the good work!";
+        console.log('Normal weight');
     } else if (bmi <= 29.9) {
-        category = "Overweight";
-        suggestion = "You should consider decreasing your weight to reach a healthy range.";
+        console.log("Overweight");
+        isOverw = true;
     } else {
-        category = "Obesity";
-        suggestion = "You should consider decreasing your weight significantly for health reasons.";
+        console.log("Obesity");
+        isOverw = true;
     }
-
-    console.log(`Category: ${category}`);
-    console.log(`Suggestion: ${suggestion}`);
+}
+if (isUnderw) {
+    let increaseW = (18.5 - bmi) * (height ** 2);
+    console.log('You should increase weight:', Math.ceil(increaseW * 100) / 100, 'kg');
+}
+if (isOverw) {
+    let decreaseW = (bmi - 24.9) * (height ** 2);
+    console.log('You should decrease weight:', Math.ceil(decreaseW * 100) / 100, 'kg');
 }
