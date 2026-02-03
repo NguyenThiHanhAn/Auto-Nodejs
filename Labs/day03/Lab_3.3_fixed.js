@@ -30,3 +30,4 @@ function sortedArray(array) {
   }
   return array;
 }
+module.exports = { sortedArray };
