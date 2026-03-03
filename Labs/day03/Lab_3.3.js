@@ -1,41 +1,26 @@
+const { log } = require("console");
+const readline = require("readline");
+
 /*
 Sort an integer array from min to max
 
 Input: [12, 34, 1, 16, 28]
 Expected output: [1, 12, 16, 28, 34]
 */
-const readLine = require("readline");
-const rl = readLine.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const readLine = require('readline-sync');
 let intArr = [];
-let n;
-let count = 0;
-rl.question("Nhap so luong phan tu: ", (answer) => {
-  n = parseInt(answer);
-  if (isNaN(n) || n <= 0) {
-    console.log("Vui lòng nhập một số nguyên dương.");
-    rl.close();
-    return;
-  }
-  console.log(`Nhap ${n} so nguyen: `);
-  askInput();
-});
-function askInput() {
-  rl.question(`So thu ${count + 1}: `, (number) => {
-    intArr.push(parseInt(number));
-    count++;
-    if (count < n) {
-      askInput();
-    } else {
-      sortArray();
-    }
-  });
+let lengthArray;
+do {
+  lengthArray = readLine.question("Please enter the length of array: ");
+} while (lengthArray <= 0);
+for (let i = 0; i < lengthArray; i++) {
+  let element = readLine.questionInt(`Enter the element numbers ${i + 1}: `);
+  intArr.push(element);
 }
-function sortArray() {
+console.log("Mang sau khi sap xep: ", sortedArray(intArr));
+function sortedArray(intArr) {
   intArr.sort((a, b) => a - b);
-  console.log("Mang sau khi sap xep: ", intArr);
-  rl.close();
+  return intArr;
 }
-module.exports = { sortArray };
+module.exports = { sortedArray };
+
