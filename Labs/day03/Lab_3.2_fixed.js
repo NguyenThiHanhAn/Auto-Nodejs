@@ -8,29 +8,26 @@ Maximum: 5*/
 
 const readLine = require("readline-sync");
 let intArr = [];
-let lengthAraay;
+let lengthArray;
 do {
-  lengthAraay = readLine.question("Please enter the length of array: ");
-} while (lengthAraay <= 0);
-for (let index = 0; index < lengthAraay; index++) {
-  let element = readLine.questionInt(
-    `Enter the element numbers ${index + 1}: `
-  );
-  intArr.push(element);
+    lengthArray = readLine.question("Please enter the length of array: ");
+} while (lengthArray <= 0);
+for (let i = 0; i < lengthArray; i++) {
+    let element = readLine.questionInt(`Enter the element numbers ${i + 1}:`);
+    intArr.push(element);
 }
-let minimum=intArr[0]
-let maximum=intArr[0];
-for (let index = 0; index < lengthAraay; index++) {
-    const value = intArr[index];
-    if (value<minimum) {
-        minimum=value;
+let minValue = intArr[0];
+let maxValue = intArr[0];
+for (let i = 0; i < lengthArray; i++) {
+    if (intArr[i] < minValue) {
+        minValue = intArr[i];
     }
-    if (value>maximum) {
-        maximum=value;
+    if (intArr[i] > maxValue) {
+        maxValue = intArr[i];
     }
 }
-if (maximum === minimum) {
-    console.log(`There is no min/max value, all values are same: ${minimum}`);
+if (minValue === maxValue) {
+    console.log(`There is no min/max value, all values are same: ${minValue}`);
 } else {
-    console.log(`Min value: ${maximum} and Min value: ${minimum}`);
+    console.log(`Min value: ${maxValue} and Min value: ${minValue}`);
 }

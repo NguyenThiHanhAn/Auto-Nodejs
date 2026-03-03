@@ -5,23 +5,22 @@ let intArr = [1, 2, 3, 4, 5];
 
 Minimum: 1
 Maximum: 5*/
-//C1:
-/*let intArr=[1,2,3,4,5];
+
+let intArr=[1,2,3,4,5];
+/*c1: 
 let minValue=intArr[0];
 let maxValue=intArr[0];
-for (let i=0;i<intArr.length;i++){
+for(let i=0;i<intArr.length;i++){
     if(intArr[i]<minValue){
         minValue=intArr[i];
     }
-    if(intArr[i]>maxValue){
+    if (intArr[i]>maxValue) {
         maxValue=intArr[i];
     }
-}
-console.log(`Minium: ${minValue}`);
-console.log(`Maximum: ${maxValue}`);*/
+}*/
 //C2:
-let intArr = [1, 2, 3, 4, 5];
-let minValue = Math.min(...intArr);
-let maxValue = Math.max(...intArr);
+let minValue=Math.min(...intArr);
+let maxValue=Math.max(...intArr);
+
 console.log(`Minium: ${minValue}`);
-console.log(`Maximum: ${maxValue}`);
+console.log(`Maxium: ${maxValue}`);
